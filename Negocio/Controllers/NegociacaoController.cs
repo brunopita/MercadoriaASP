@@ -30,6 +30,8 @@ namespace Negocio.Controllers
         {
             try
             {
+                n.CreateAt = DateTime.Now;
+                n.UpdateAt = DateTime.Now;
                 db.negocio.Add(n);
                 db.SaveChanges();
             }
@@ -38,7 +40,7 @@ namespace Negocio.Controllers
                 return View("Error", new HandleErrorInfo(ex, "EmployeeInfo", "Create"));
             }
            
-            return View();
+            return RedirectToAction("Index");
         }
 
     }

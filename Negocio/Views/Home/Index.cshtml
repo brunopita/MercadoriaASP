@@ -17,10 +17,13 @@
         @if(Model != null){
             foreach (var item in Model)
             {
-                <tr>@Html.DisplayFor(modelItem => item.Id)</tr> 
-                <tr>@Html.DisplayFor(modelItem => item.Mercadoria.Nome)</tr>
-                <tr>@Html.DisplayFor(modelItem => item.CreateAt)</tr>
-                <tr>@Html.DisplayFor(modelItem => item.TipoNegocio.Nome)</tr>
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Id)</td> 
+                    <td>@Html.DisplayFor(modelItem => item.Mercadoria.Nome)</td>
+                    <td>@Html.DisplayFor(modelItem => item.CreateAt)</td>
+                    <td>@Html.DisplayFor(modelItem => item.TipoNegocio.Nome)</td>
+                </tr>
+                
             }
         }
       
