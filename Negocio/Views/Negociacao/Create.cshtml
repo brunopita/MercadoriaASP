@@ -1,0 +1,51 @@
+﻿@model Negocio.Models.Banco.negocio
+
+@{
+    ViewBag.Title = "Cadastrar";
+}
+
+<h2>Cadastrar</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Negociação</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MercadoriaId)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.MercadoriaId, (SelectList)ViewData["Mercadorias"], "Mercadorias")
+            @Html.ValidationMessageFor(model => model.MercadoriaId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CreateAt)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CreateAt, new {@class="datepicker"})
+            @Html.ValidationMessageFor(model => model.CreateAt)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TipoNegocioId)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.TipoNegocioId, (SelectList)ViewData["TipoNegociacao"], "Tipo Negociação")
+            @Html.ValidationMessageFor(model => model.TipoNegocioId)
+        </div>
+        <p>
+            <input type="submit" value="Cadastrar" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Voltar", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

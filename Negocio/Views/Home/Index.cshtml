@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Negocio.Models.Banco.negocio>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Transações anteriores</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Id) </td>
+            <td>@Html.DisplayNameFor(model => model.MercadoriaId)</td>
+            <td>@Html.DisplayNameFor(model => model.CreateAt)</td>
+            <td>@Html.DisplayNameFor(model => model.TipoNegocioId)</td>
+        </tr>
+    </thead>
+    <tbody>
+        @if(Model != null){
+            foreach (var item in Model)
+            {
+                <tr>@Html.DisplayFor(modelItem => item.Id)</tr> 
+                <tr>@Html.DisplayFor(modelItem => item.Mercadoria.Nome)</tr>
+                <tr>@Html.DisplayFor(modelItem => item.CreateAt)</tr>
+                <tr>@Html.DisplayFor(modelItem => item.TipoNegocio.Nome)</tr>
+            }
+        }
+      
+    </tbody>
+</table>
